@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="cordova-plugin-fb-accountkit"
+        version="0.1-beta">
+
+  <name>Cordova Fb Account Kit</name>
+  <description>Cordova plugin to integrate Facebook Account Kit, which allows passwordless SMS/email authentication</description>
+  <license>MIT</license>
+
+  <engines>
+    <engine name="cordova-android" version=">=3.5.0" />
+  </engines>
+
+  <asset src="www/fb-account-kit.js" target="js/fb-account-kit.js"/>
+
+  <js-module src="www/fb-account-kit.js" name="fbAccountKit">
+    <clobbers target="fbAccountKit" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="FbAccountKit">
+        <param name="android-package" value="in.conect.fbaccountkit.FbAccountKit"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/FbAccountKit.java" target-dir="src/in/conect/fbaccountkit/"/>
+  </platform>
+
+</plugin>
