@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="cordova-plugin-fb-accountkit"
-        version="0.1-beta">
+        version="0.1">
 
   <name>Cordova Fb Account Kit</name>
   <description>Cordova plugin to integrate Facebook Account Kit, which allows passwordless SMS/email authentication</description>
@@ -10,6 +10,10 @@
   <engines>
     <engine name="cordova-android" version=">=3.5.0" />
   </engines>
+
+  <preference name="FB_APP_NAME" />
+  <preference name="FB_APP_ID" />
+  <preference name="FB_CLIENT_TOKEN" />
 
   <asset src="www/fb-account-kit.js" target="js/fb-account-kit.js"/>
 
@@ -21,11 +25,43 @@
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="FbAccountKit">
-        <param name="android-package" value="in.conect.fbaccountkit.FbAccountKit"/>
+        <param name="android-package" value="in.confest.fbaccountkit.FbAccountKit"/>
       </feature>
+      <access origin="https://m.facebook.com" />
+      <access origin="https://graph.facebook.com" />
+      <access origin="https://api.facebook.com" />
+      <access origin="https://*.fbcdn.net" />
+      <preference name="android-minSdkVersion" value="15" />
     </config-file>
 
-    <source-file src="src/android/FbAccountKit.java" target-dir="src/in/conect/fbaccountkit/"/>
+    <source-file src="src/android/fbaccountkit.xml" target-dir="res/values" />
+    <config-file target="res/values/fbaccountkit.xml" parent="/*">
+      <string name="fb_app_name">$FB_APP_NAME</string>
+      <string name="fb_app_id">$FB_APP_ID</string>
+      <string name="account_kit_token">$FB_CLIENT_TOKEN</string>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="application">
+      <uses-permission android:name="android.permission.RECEIVE_SMS" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+      <activity
+              android:name="com.facebook.accountkit.ui.AccountKitActivity" >
+      </activity>
+
+      <meta-data android:name="com.facebook.accountkit.ApplicationName" android:value="@string/fb_app_name" />
+      <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id" />
+      <meta-data android:name="com.facebook.accountkit.ClientToken" android:value="@string/account_kit_token" />
+      <meta-data android:name="com.facebook.accountkit.FacebookAppEventsEnabled" android:value="false"/>
+
+    </config-file>
+
+    <framework src="com.facebook.android:account-kit-sdk:4.16.1"/>
+    <framework src="com.android.support:appcompat-v7:24.2.1"/>
+    <framework src="com.google.code.gson:gson:2.7"/>
+
+    <source-file src="src/android/FbAccountKit.java" target-dir="src/in/confest/fbaccountkit/"/>
   </platform>
 
 </plugin>

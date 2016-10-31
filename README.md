@@ -2,8 +2,34 @@
 
 This plugin integrates the Facebook's Account Kit. For more info see [Account Kit](https://www.accountkit.com/)
 
-WIP
+This is a WIP. Not recommended for production usage.
+
+## Supported platforms
+
+1) Android
+
+## Plugin Installation
+
+1) Clone this project
+2) Add the plugin to your cordova project with the following command
+
+```
+cordova plugin add <PATH_TO>/cordova-plugin-fb-accountkit --variable FB_APP_NAME=<APP_NAME> --variable FB_APP_ID=<APP_ID> --variable FB_CLIENT_TOKEN=<CLIENT_TOKEN>
+```
 
 ## API
 
-Coming soon...
+###### loginWithPhone
+```
+fbAccountKit.loginWithPhone(success, failure, {"type" : "CODE"}); // currently only 'CODE' is supported
+```
+
+Response:
+```
+{
+    status : "SUCCESS",
+    authorizationCode : "<auth-code-string>",
+    finalAuthorizationState : "",
+    tokenRefreshIntervalInSeconds : 120
+}
+```
