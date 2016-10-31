@@ -6,12 +6,12 @@ This is a WIP. Not recommended for production usage.
 
 ## Supported platforms
 
-1. Android
+* Android
 
 ## Plugin Installation
 
-1. Clone this project
-2.c Add the plugin to your cordova project with the following command
+* Clone this project
+* Add the plugin to your cordova project with the following command
 
 ```
 cordova plugin add <PATH_TO>/cordova-plugin-fb-accountkit --variable FB_APP_NAME=<APP_NAME> --variable FB_APP_ID=<APP_ID> --variable FB_CLIENT_TOKEN=<CLIENT_TOKEN>
