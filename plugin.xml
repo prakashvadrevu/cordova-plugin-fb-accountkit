@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="cordova-plugin-fb-accountkit"
-        version="0.1">
+        version="0.1.0-beta">
 
   <name>Cordova Fb Account Kit</name>
   <description>Cordova plugin to integrate Facebook Account Kit, which allows passwordless SMS/email authentication</description>

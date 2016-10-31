@@ -1,0 +1,36 @@
+{
+  "name": "cordova-plugin-fb-accountkit",
+  "version": "0.1.0-beta",
+  "description": "Cordova plugin to integrate Facebook Account Kit, which allows passwordless SMS/email authentication",
+  "cordova": {
+    "id": "cordova-plugin-fb-accountkit",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prakashvadrevu/cordova-plugin-fb-accountkit.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "accountkit",
+    "authentication",
+    "passwordless",
+    "phone",
+    "facebook-accountkit"
+  ],
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=3.5.0"
+    }
+  ],
+  "author": "Prakash Vadrevu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prakashvadrevu/cordova-plugin-fb-accountkit/issues"
+  },
+  "homepage": "https://github.com/prakashvadrevu/cordova-plugin-fb-accountkit#readme"
+}
