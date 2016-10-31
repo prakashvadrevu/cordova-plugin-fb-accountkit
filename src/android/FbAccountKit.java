@@ -49,10 +49,10 @@ public class FbAccountKit extends CordovaPlugin {
     private static final int LOGIN_REQUEST_CODE = 197345;
 
     private enum Action {
-        PHONE_LOGIN
+        PHONE_LOGIN,
+        LOGOUT
         // TODO : to be enabled
-        /*LOGOUT
-        EMAIL_LOGIN,
+        /*EMAIL_LOGIN,
         IS_LOGGED_IN,
         GET_ACCESS_TOKEN*/
     }
@@ -108,6 +108,15 @@ public class FbAccountKit extends CordovaPlugin {
                     login(LoginType.PHONE, args);
                 }
             });
+
+        } else if (Action.LOGOUT.name().equals(action)) {
+            cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    logout();
+                }
+            });
+
         }
 
         return true;
@@ -135,6 +144,11 @@ public class FbAccountKit extends CordovaPlugin {
 
         this.cordova.setActivityResultCallback(this);
         this.cordova.startActivityForResult(this, intent, LOGIN_REQUEST_CODE);
+    }
+
+    private void logout() {
+        AccountKit.logOut();
+        callbackContext.success();
     }
 
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {

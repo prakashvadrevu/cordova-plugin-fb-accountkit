@@ -6,12 +6,12 @@ This is a WIP. Not recommended for production usage.
 
 ## Supported platforms
 
-1) Android
+1. Android
 
 ## Plugin Installation
 
-1) Clone this project
-2) Add the plugin to your cordova project with the following command
+1. Clone this project
+2.c Add the plugin to your cordova project with the following command
 
 ```
 cordova plugin add <PATH_TO>/cordova-plugin-fb-accountkit --variable FB_APP_NAME=<APP_NAME> --variable FB_APP_ID=<APP_ID> --variable FB_CLIENT_TOKEN=<CLIENT_TOKEN>
@@ -19,7 +19,7 @@ cordova plugin add <PATH_TO>/cordova-plugin-fb-accountkit --variable FB_APP_NAME
 
 ## API
 
-###### loginWithPhone
+#### loginWithPhone
 ```
 fbAccountKit.loginWithPhone(success, failure, {"type" : "CODE"}); // currently only 'CODE' is supported
 ```
@@ -33,3 +33,11 @@ Response:
     tokenRefreshIntervalInSeconds : 120
 }
 ```
+
+#### logout
+```
+fbAccountKit.logout(success, failure);
+```
+
+Response:
+* 'success' callback gets called
