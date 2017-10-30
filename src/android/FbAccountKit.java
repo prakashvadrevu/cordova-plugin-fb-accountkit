@@ -50,6 +50,7 @@ public class FbAccountKit extends CordovaPlugin {
 
     private enum Action {
         PHONE_LOGIN,
+        EMAIL_LOGIN,
         LOGOUT
         // TODO : to be enabled
         /*EMAIL_LOGIN,
@@ -109,7 +110,14 @@ public class FbAccountKit extends CordovaPlugin {
                 }
             });
 
-        } else if (Action.LOGOUT.name().equals(action)) {
+        }else if(Action.EMAIL_LOGIN.name().equals(action)){
+               context().runOnUiThread(new Runnable() {
+                @Override public void run() {
+                    login(LoginType.EMAIL, args);
+                }
+            });
+        }
+        else if (Action.LOGOUT.name().equals(action)) {
             cordova.getThreadPool().execute(new Runnable() {
                 @Override
                 public void run() {
